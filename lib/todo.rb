@@ -51,11 +51,9 @@ class Todo
 
   def add_todo
     puts
-    puts "What would you to like to add to ToDo?"
-    input = gets.chomp.downcase
-    new_task = (input + ",no")
+    puts "Name of Todo > "
+    new_task = [get_input,"no"]
     @todos << new_task
-    puts "Your task has been added to ToDo."
   end
 
   def mark_todo
