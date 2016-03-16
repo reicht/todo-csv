@@ -22,7 +22,9 @@ class Todo
       print " > "
       action = gets.chomp.to_i
       case action
-      when 1 then exit
+      when 1
+        save!
+        exit
       when 2 then add_todo
       when 3 then mark_todo
       else
