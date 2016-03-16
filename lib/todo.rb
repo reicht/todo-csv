@@ -36,14 +36,14 @@ class Todo
     puts "Unfinished"
     @todos.each_with_index do |todo, index|
       completion = todo["completed"]
-      if completion.strip == "no"
+      if completion == "no"
         puts "#{index + 1}) #{todo["name"]}"
       end
     end
     puts "Completed"
     @todos.each_with_index do |todo, index|
       completion = todo["completed"]
-      if completion.strip == "yes"
+      if completion == "yes"
         puts "#{index + 1}) #{todo["name"]}"
       end
     end
@@ -53,6 +53,11 @@ class Todo
   end
 
   def mark_todo
+    puts "Which todo have you finished?"
+    target = @todos[get_input.to_i-1]
+    if target["completed"] == "no"
+      target["completed"] = "yes"
+    end
   end
 
   def todos
