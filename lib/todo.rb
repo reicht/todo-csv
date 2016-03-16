@@ -35,9 +35,18 @@ class Todo
   def view_todos
     puts "Unfinished"
     @todos.each_with_index do |todo, index|
-      puts "#{index + 1}) #{todo["name"]}"
+      completion = todo["completed"]
+      if completion.strip == "no"
+        puts "#{index + 1}) #{todo["name"]}"
+      end
     end
     puts "Completed"
+    @todos.each_with_index do |todo, index|
+      completion = todo["completed"]
+      if completion.strip == "yes"
+        puts "#{index + 1}) #{todo["name"]}"
+      end
+    end
   end
 
   def add_todo
