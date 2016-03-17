@@ -66,4 +66,11 @@ class TodoTest < MiniTest::Test
    @todo.mark_todo
    assert_equal("finish homework,yes\n", @todo.todos[0].to_s, "The first todo in todos was not 'finish homework'")
   end
+
+  def test_edit_todo_select
+  todo_setup # Given
+  $input.push('test')
+  @todo.edit_todo
+  assert_equal("test,no\n", @todo.todos[0].to_s, "Edit does not edit target ToDo")
+  end
 end
